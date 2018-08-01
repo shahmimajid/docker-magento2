@@ -9,3 +9,5 @@ web:
      - php
 php:
   image : mshahmi/docker-magento2-base
+  volumes:
+    - ./code:/code
