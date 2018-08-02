@@ -25,7 +25,7 @@ deploy-to-docker:
         code: ssh $user@docker.shahmimajid.com < gitclone.sh
     - script:
         name: Set URL for Development
-        code: ssh $user@docker.shahmimajid.com sed -i "/s/local.magento/$DEV_URL/g" /home/$user/docker-magento2/env
+        code: ssh $user@docker.shahmimajid.com sed -i '/s/local.magento/$DEV_URL/g' /home/$user/docker-magento2/env
     - script:
         name: Set URL for Development
         code: 
