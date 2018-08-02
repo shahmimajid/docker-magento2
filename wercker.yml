@@ -8,7 +8,10 @@ build:
     # Test the project
     - script:
         name: Git clone
-        code : git clone https://github.com/shahmimajid/docker-magento2.git  
+        code : git clone https://github.com/shahmimajid/docker-magento2.git 
+    - script:
+        name: Permission Fix
+        code : chmod u+x ~/docker-magento2/deploy.sh
 
 deploy-to-docker:
     box: debian
@@ -26,4 +29,4 @@ deploy-to-docker:
     # Deployment
     - script:
         name: Deploy to server
-        code: ssh $user@$devserver bash ~/docker-magento2/deploy.sh
+        code: ssh $user@$devserver sh ~/docker-magento2/deploy.sh
