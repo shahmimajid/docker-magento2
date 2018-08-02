@@ -1,0 +1,14 @@
+box: mshahmi/docker-magento2-base
+## Build Definition
+build:
+  # Step that will be executed on build
+  steps:
+    # Test the project
+    - script:
+        name: Setup Magento User permission
+        code: |
+           cd /var/www/html/
+           find var vendor pub/static pub/media app/etc -type f -exec chmod u+w {} \;
+           find var vendor pub/static pub/media app/etc -type d -exec chmod u+w {} \;
+           chmod u+x bin/magento
+           chown -R www-data:www-data /var/www/
