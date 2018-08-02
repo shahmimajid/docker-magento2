@@ -8,6 +8,11 @@ build:
     - internal/docker-build: 
         dockerfile: Dockerfile
         image-name: magento2-image # name used to refer to this image until it's pushed
+    - internal/docker-run:
+        image: my-new-image
+        name: magento2-image    
+    - internal/docker-kill:
+        name: magento2-image  
     # Push to Docker Hub       
     - internal/docker-push: 
         image-name: magento2-image
@@ -15,3 +20,4 @@ build:
         password: $DOCKER_PASSWORD # Docker Hub password.  
         repository: docker.io/$DOCKER_USERNAME/docker-magento2
         tag: latest
+    
