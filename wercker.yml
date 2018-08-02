@@ -11,7 +11,7 @@ deploy-to-docker:
     steps:
     # Installs openssh client and other dependencies.
     - install-packages:
-        packages: openssh-client openssh-server git
+        packages: openssh-client openssh-server git date iputils-ping
     # Adds docker server to the list of known hosts.
     - add-to-known_hosts:
         hostname: docker.shahmimajid.com
