@@ -1,4 +1,4 @@
-box: debian:stable-slim
+box: debian
 ## Build Definition
 build:
   # Step that will be executed on build
