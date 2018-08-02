@@ -22,6 +22,8 @@ spec:
       containers:
       - name: magento2
         image: mshahmi/docker-magento2-base:${WERCKER_GIT_COMMIT}
+        command:
+          - /usr/local/bin/install-magento
         ports:
         - name: magento2-server
           containerPort: 80
