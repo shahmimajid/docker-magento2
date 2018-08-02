@@ -3,5 +3,5 @@ LABEL maintainer="Shahmi Majid"
 LABEL version="2.2.5"
 LABEL description="Magento 2.2.5"
 
-CMD ./usr/local/bin/install-magento
-CMD ./usr/local/bin/install-sampledata
+RUN ./usr/local/bin/install-magento
+
