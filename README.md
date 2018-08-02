@@ -120,3 +120,8 @@ Below is the list of unit test that you can run :
    * integrity 
    * legacy  
    * default
+
+
+## Deployment
+
+Deployment will triggered whenever any changes on master branch.
