@@ -9,10 +9,10 @@ build:
         dockerfile: Dockerfile
         image-name: magento2-image # name used to refer to this image until it's pushed
     - internal/docker-run:
-        image: my-new-image
-        name: magento2-image    
+        image: magento2-image
+        name: myTestContainer    
     - internal/docker-kill:
-        name: magento2-image  
+        name: myTestContainer  
     # Push to Docker Hub       
     - internal/docker-push: 
         image-name: magento2-image
