@@ -125,3 +125,8 @@ Below is the list of unit test that you can run :
 ## Deployment
 
 Deployment will triggered whenever any changes on master branch.
+
+Variable that need to set :
+   * user ( user to ssh)
+   * DEV_URL ( To update DEV URL with FQDN)
+   
