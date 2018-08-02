@@ -18,7 +18,7 @@ deploy-to-docker:
         local: true
     # Adds SSH key created by Wercker
     - add-ssh-key:
-        keyname: gcp
+        keyname: gcp_private
     # Git Clone
     - script:
         name: Git Clone
