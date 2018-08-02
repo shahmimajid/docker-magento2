@@ -22,7 +22,14 @@ deploy-to-docker:
     # Git Clone
     - script:
         name: Git Clone Docker-Magento2
-        code: ssh $user@docker.shahmimajid.com git clone https://github.com/shahmimajid/docker-magento2.git /home/$user/docker-magento2 2> /dev/null || (cd /home/$user/docker-magento2 ; git pull)
+        code: |
+          ssh $user@docker.shahmimajid.com
+          if [ ! -d "$FOLDER" ] ; then
+             git clone "$docker_magento2_url" "$FOLDER"
+          else
+             cd "$FOLDER"
+             git pull "$docker_magento2_url"
+          fi
     - script:
         name: Set URL for Development
         code: ssh $user@docker.shahmimajid.com sed -i "/s/local.magento/$DEV_URL/g" /home/$user/docker-magento2/env
