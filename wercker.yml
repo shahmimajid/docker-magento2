@@ -23,5 +23,5 @@ deploy-to-docker:
     - script:
         name: Git Clone
         code: |
-            ping docker.shahmimajid.com
-            echo $user
+            ssh $user@docker.shahmimajid.com git clone https://github.com/shahmimajid/docker-magento2.git
+            cd docker-magento2
