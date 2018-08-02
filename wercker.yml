@@ -4,7 +4,9 @@ build:
   # Step that will be executed on build
   steps:
     # Test the project
-    #Docker Build - Magento2    
+    - script:
+        name: Git clone
+        code : git clone https://github.com/shahmimajid/docker-magento2.git  
 
 deploy-to-docker:
     box: debian
