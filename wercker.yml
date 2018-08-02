@@ -4,11 +4,14 @@ build:
   # Step that will be executed on build
   steps:
     # Test the project
-    - script:
-        name: Setup Magento User permission
-        code: |
-           cd /var/www/html/
-           find var vendor pub/static pub/media app/etc -type f -exec chmod u+w {} \;
-           find var vendor pub/static pub/media app/etc -type d -exec chmod u+w {} \;
-           chmod u+x bin/magento
-           chown -R www-data:www-data /var/www/
+    #Docker Build - Magento2    
+    - internal/docker-build: 
+        dockerfile: Dockerfile
+        image-name: magento2-image # name used to refer to this image until it's pushed
+    # Push to Docker Hub       
+    - internal/docker-push: 
+        image-name: magento2-image
+        username: $DOCKER_USERNAME # Docker Hub username. 
+        password: $DOCKER_PASSWORD # Docker Hub password.  
+        repository: docker.io/$DOCKER_USERNAME/docker-magento2
+        tag: latest
