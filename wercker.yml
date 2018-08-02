@@ -5,6 +5,7 @@ build:
   steps:
     # Test the project
     #Docker Build - Magento2    
+
 deploy-to-kubernetes:
     box: debian
     steps:
