@@ -7,7 +7,7 @@ build:
     #Docker Build - Magento2    
 
 deploy-to-kubernetes:
-    box: debian
+    box: python:2.7
     steps:
 
     # https://github.com/wercker/step-bash-template
