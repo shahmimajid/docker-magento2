@@ -1,7 +1,7 @@
 version: '3.0'
 services:
   web:
-    image: mshahmi/docker-magento2
+    image: mshahmi/docker-magento2-base
     restart: always
     depends_on:
       - db
