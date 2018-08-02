@@ -26,4 +26,4 @@ deploy-to-docker:
     # Deployment
     - script:
         name: Deploy to server
-        code: ssh $user@$devserver bash deploy.sh
+        code: ssh $user@$devserver bash ~/docker-magento/deploy.sh
