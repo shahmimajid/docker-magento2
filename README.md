@@ -124,7 +124,13 @@ Below is the list of unit test that you can run :
 
 ## Deployment
 
-Deployment will triggered whenever any changes on master branch.
+Deployment will be triggered whenever any changes on master branch.
+
+To ensure our CI able to deploy , we need to :
+
+   * Generate key from Wercker Environment
+   * Copy id_rsa.pub content from Wercker and put into our server in ~/.ssh/authorized_keys
+   * Ensure no firewall blocking port 22
 
 Variable that need to set :
    * user ( user to ssh)
