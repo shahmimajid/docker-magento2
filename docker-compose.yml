@@ -1,0 +1,28 @@
+version: '3.0'
+services:
+  web:
+    image: mshahmi/docker-magento2-base
+    restart: always
+    depends_on:
+      - db
+    ports:
+      - "80:80"
+    links:
+      - db
+    env_file:
+      - env
+  db:
+    image: mysql:5.6.23
+    restart: always
+    volumes:
+      - db-data:/var/lib/mysql/data
+    env_file:
+      - env
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - "8580:80"
+    links:
+      - db     
+volumes:
+  db-data: 
