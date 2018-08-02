@@ -11,8 +11,6 @@ build:
     - internal/docker-run:
         image: magento2-image
         name: myTestContainer    
-    - internal/docker-kill:
-        name: myTestContainer  
     # Push to Docker Hub       
     - internal/docker-push: 
         image-name: magento2-image
