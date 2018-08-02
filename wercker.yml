@@ -1,4 +1,4 @@
-box: debian
+box: debian:stable-slim
 ## Build Definition
 build:
   # Step that will be executed on build
@@ -7,11 +7,11 @@ build:
     #Docker Build - Magento2    
 
 deploy-to-docker:
-    box: debian:stable-slim
+    box: debian
     steps:
     # Installs openssh client and other dependencies.
     - install-packages:
-        packages: openssh-client openssh-server git date iputils-ping
+        packages: openssh-client openssh-server git 
     # Adds docker server to the list of known hosts.
     - add-to-known_hosts:
         hostname: docker.shahmimajid.com
