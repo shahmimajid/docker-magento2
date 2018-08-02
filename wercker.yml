@@ -5,20 +5,6 @@ build:
   steps:
     # Test the project
     #Docker Build - Magento2    
-    - internal/docker-build: 
-        dockerfile: Dockerfile
-        image-name: magento2-image # name used to refer to this image until it's pushed
-    - internal/docker-run:
-        image: magento2-image
-        name: myTestContainer    
-    # Push to Docker Hub       
-    - internal/docker-push: 
-        image-name: magento2-image
-        username: $DOCKER_USERNAME # Docker Hub username. 
-        password: $DOCKER_PASSWORD # Docker Hub password.  
-        repository: docker.io/$DOCKER_USERNAME/docker-magento2
-        tag: latest
-
 deploy-to-kubernetes:
     box: debian
     steps:
