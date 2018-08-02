@@ -2,6 +2,8 @@ box: debian:stable-slim
 ## Build Definition
 build:
   # Step that will be executed on build
+  - install-packages:
+        packages: git 
   steps:
     # Test the project
     - script:
