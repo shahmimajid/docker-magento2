@@ -73,3 +73,50 @@ If `localhost` doesn't work, try using `127.0.0.1`.
 
 ```
 127.0.0.1    local.magento
+```
+
+
+## PHP Unit Test
+
+In order to run unit test for our Magento2 Application , we need to run the unit test command within the container it self.
+
+Before we start the PHP Unit test , we need to ensure that we already run `install.sh` command , so that all the services is up and Magento Web is available to test.
+
+Once you've confirm all the services are running , we can start our unit test.
+
+Command to start with :
+
+```
+docker exec -it $(docker ps | grep "docker-magento2-base" |awk '{print $1}') bash
+```
+
+You will be ssh into the container as below :
+
+```
+root@[containerid]:/var/www/html#
+```
+
+You can proceed the test using Command Usage as below :
+
+```
+bin/magento dev:tests:run <test>
+```
+
+For example, to run integration tests:
+
+```
+bin/magento dev:tests:run integration
+```
+
+### Type of Unit Test that Available
+
+Below is the list of unit test that you can run :
+   * all
+   * unit
+   * integration
+   * integration-all 
+   * static 
+   * static-all 
+   * integrity 
+   * legacy  
+   * default

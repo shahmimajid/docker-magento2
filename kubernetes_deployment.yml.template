@@ -1,0 +1,28 @@
+# This template file will have its environment variables expanded
+# and the .template extension removed by the bash-template Wercker step.
+# See wercker.yml.
+
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: magento2
+  labels:
+    commit: ${WERCKER_GIT_COMMIT}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: magento2
+  template:
+    metadata:
+      labels:
+        app: magento2
+        commit: ${WERCKER_GIT_COMMIT}
+    spec:
+      containers:
+      - name: magento2
+        image: mshahmi/docker-magento2-base:${WERCKER_GIT_COMMIT}
+        ports:
+        - name: magento2-server
+          containerPort: 80
+          protocol: TCP
