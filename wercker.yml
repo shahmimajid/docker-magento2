@@ -18,7 +18,7 @@ deploy-to-docker:
         local: true
     # Adds SSH key created by Wercker
     - add-ssh-key:
-        keyname: $devserver_private
+        keyname: devserver_private
     # Git Clone
     - script:
         name: Git Clone
