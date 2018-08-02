@@ -19,14 +19,7 @@ deploy-to-docker:
     # Adds SSH key created by Wercker
     - add-ssh-key:
         keyname: devserver
-    # Git Clone
+    # Deployment
     - script:
-        name: Git Clone Docker-Magento2
-        code: ssh $user@docker.shahmimajid.com < gitclone.sh
-    - script:
-        name: Set URL for Development
-        code: ssh $user@docker.shahmimajid.com sed -i '/s/local.magento/$DEV_URL/g' /home/$user/docker-magento2/env
-    - script:
-        name: Set URL for Development
-        code: 
-
+        name: Deploy to server
+        code: ssh $user@docker.shahmimajid.com < deploy.sh
