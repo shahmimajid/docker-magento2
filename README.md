@@ -135,4 +135,5 @@ To ensure our CI able to deploy , we need to :
 Variable that need to set :
    * user ( user to ssh)
    * DEV_URL ( To update DEV URL with FQDN)
+   * devserver ( Server that we want to deploy)
    

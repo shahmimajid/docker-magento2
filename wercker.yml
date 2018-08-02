@@ -14,7 +14,7 @@ deploy-to-docker:
         packages: openssh-client openssh-server git 
     # Adds docker server to the list of known hosts.
     - add-to-known_hosts:
-        hostname: docker.shahmimajid.com
+        hostname: $devserver
         local: true
     # Adds SSH key created by Wercker
     - add-ssh-key:
@@ -22,4 +22,4 @@ deploy-to-docker:
     # Deployment
     - script:
         name: Deploy to server
-        code: ssh $user@docker.shahmimajid.com < bash deploy.sh
+        code: ssh $user@$devserver bash deploy.sh
