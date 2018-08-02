@@ -5,4 +5,7 @@ LABEL description="Magento 2.2.5"
 
 CMD ./usr/local/bin/install-magento
 
-RUN ./usr/local/bin/install-sampledata
+COPY ./install-sampledata /usr/local/bin/install-sampledata
+RUN chmod +x /usr/local/bin/install-sampledata
+
+CMD ./usr/local/bin/install-sampledata
