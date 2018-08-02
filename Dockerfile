@@ -3,5 +3,4 @@ LABEL maintainer="Shahmi Majid"
 LABEL version="2.2.5"
 LABEL description="Magento 2.2.5"
 
-RUN ./usr/local/bin/install-magento
-
+RUN ["/bin/bash", "-c", "/usr/local/bin/install-magento"]
