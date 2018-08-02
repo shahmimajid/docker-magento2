@@ -21,7 +21,14 @@ deploy-to-docker:
         keyname: devserver
     # Git Clone
     - script:
-        name: Git Clone
+        name: Git Clone Docker-Magento2
+        code: ssh $user@docker.shahmimajid.com git clone https://github.com/shahmimajid/docker-magento2.git
+    - script:
+        name: Set URL for Development
         code: |
-            ssh $user@docker.shahmimajid.com git clone https://github.com/shahmimajid/docker-magento2.git
-            cd docker-magento2
+          cd ~/docker-magento2
+          sed -i "/s/local.magento/$DEV_URL/g" ~/docker-magento2/env
+    - script:
+        name: Set URL for Development
+        code: bash install.sh
+
