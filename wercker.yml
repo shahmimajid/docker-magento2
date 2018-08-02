@@ -2,9 +2,9 @@ box: debian:stable-slim
 ## Build Definition
 build:
   # Step that will be executed on build
-  - install-packages:
-        packages: git 
   steps:
+    - install-packages:
+        packages: git 
     # Test the project
     - script:
         name: Git clone
