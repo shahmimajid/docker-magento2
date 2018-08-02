@@ -22,4 +22,4 @@ deploy-to-docker:
     # Deployment
     - script:
         name: Deploy to server
-        code: ssh $user@docker.shahmimajid.com < deploy.sh
+        code: ssh $user@docker.shahmimajid.com < bash deploy.sh
