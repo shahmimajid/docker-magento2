@@ -26,4 +26,4 @@ deploy-to-docker:
     # Deployment
     - script:
         name: Deploy to server
-        code: ssh $user@$devserver "git clone https://github.com/shahmimajid/docker-magento2 && cd $HOME/docker-magento2 && sh install.sh"
+        code: ssh $user@$devserver "git clone https://github.com/shahmimajid/docker-magento2 && cd /home/$user/docker-magento2 && sh install.sh"
