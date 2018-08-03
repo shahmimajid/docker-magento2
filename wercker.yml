@@ -85,3 +85,67 @@ test-default:
     - script:
         name: Run Test - Default
         code: ssh $user@$devserver "cd /home/mshahmi/docker-magento2 && chmod +x runtestmg-default.sh && ./runtestmg-default.sh"
+test-integration:
+    box: debian:stable-slim
+    steps:
+    # Installs openssh client and other dependencies.
+    - install-packages:
+        packages: openssh-client openssh-server git 
+    # Adds docker server to the list of known hosts.
+    - add-to-known_hosts:
+        hostname: $devserver
+        local: true
+    # Adds SSH key created by Wercker
+    - add-ssh-key:
+        keyname: devserver
+    - script:
+        name: Run Test - Default
+        code: ssh $user@$devserver "cd /home/mshahmi/docker-magento2 && chmod +x runtestmg-integration.sh && ./runtestmg-integration.sh"
+test-integrity:
+    box: debian:stable-slim
+    steps:
+    # Installs openssh client and other dependencies.
+    - install-packages:
+        packages: openssh-client openssh-server git 
+    # Adds docker server to the list of known hosts.
+    - add-to-known_hosts:
+        hostname: $devserver
+        local: true
+    # Adds SSH key created by Wercker
+    - add-ssh-key:
+        keyname: devserver
+    - script:
+        name: Run Test - Default
+        code: ssh $user@$devserver "cd /home/mshahmi/docker-magento2 && chmod +x runtestmg-integrity.sh && ./runtestmg-integrity.sh"
+test-static:
+    box: debian:stable-slim
+    steps:
+    # Installs openssh client and other dependencies.
+    - install-packages:
+        packages: openssh-client openssh-server git 
+    # Adds docker server to the list of known hosts.
+    - add-to-known_hosts:
+        hostname: $devserver
+        local: true
+    # Adds SSH key created by Wercker
+    - add-ssh-key:
+        keyname: devserver
+    - script:
+        name: Run Test - Default
+        code: ssh $user@$devserver "cd /home/mshahmi/docker-magento2 && chmod +x runtestmg-static.sh && ./runtestmg-static.sh"
+test-unit:
+    box: debian:stable-slim
+    steps:
+    # Installs openssh client and other dependencies.
+    - install-packages:
+        packages: openssh-client openssh-server git 
+    # Adds docker server to the list of known hosts.
+    - add-to-known_hosts:
+        hostname: $devserver
+        local: true
+    # Adds SSH key created by Wercker
+    - add-ssh-key:
+        keyname: devserver
+    - script:
+        name: Run Test - Default
+        code: ssh $user@$devserver "cd /home/mshahmi/docker-magento2 && chmod +x runtestmg-unit.sh && ./runtestmg-unit.sh"
