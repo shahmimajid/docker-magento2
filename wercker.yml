@@ -25,5 +25,8 @@ deploy-to-docker:
         keyname: devserver
     # Deployment
     - script:
-        name: Deploy to server
-        code: ssh $user@$devserver "git clone https://github.com/shahmimajid/docker-magento2 && cd /home/$user/docker-magento2 && sh install.sh"
+        name: Git clone to server
+        code: ssh $user@$devserver "if [ -d /home/mshahmi/docker-magento2 ]; then cd /home/mshahmi/docker-magento2 && git pull; else git clone https://github.com/shahmimajid/docker-magento2.git; fi"
+    - script:
+        name: Install and run
+        code: ssh $user@$devserver "cd /home/$user/docker-magento2 && chmod +x install.sh && ./install.sh"
