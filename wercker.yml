@@ -9,7 +9,7 @@ build:
     - script:
         name: Git clone
         code : git clone https://github.com/shahmimajid/docker-magento2.git 
-
+#Deployment
 deploy-to-docker:
     box: debian:stable-slim
     steps:
@@ -36,3 +36,21 @@ deploy-to-docker:
     - script:
         name: Install Magento
         code: ssh $user@$devserver "cd /home/mshahmi/docker-magento2 && chmod +x runmagento.sh && ./runmagento.sh"
+#Unit Test        
+unit-test:
+    box: debian:stable-slim
+    steps:
+    # Installs openssh client and other dependencies.
+    - install-packages:
+        packages: openssh-client openssh-server git 
+    # Adds docker server to the list of known hosts.
+    - add-to-known_hosts:
+        hostname: $devserver
+        local: true
+    # Adds SSH key created by Wercker
+    - add-ssh-key:
+        keyname: devserver
+    # Unit Test
+   - script:
+        name: Install Magento
+        code: ssh $user@$devserver "cd /home/mshahmi/docker-magento2 && chmod +x runtest.sh && ./runtest.sh"

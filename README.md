@@ -76,7 +76,7 @@ If `localhost` doesn't work, try using `127.0.0.1`.
 ```
 
 
-## PHP Unit Test
+# PHP Unit Test
 
 In order to run unit test for our Magento2 Application , we need to run the unit test command within the container it self.
 
@@ -108,7 +108,7 @@ For example, to run integration tests:
 bin/magento dev:tests:run integration
 ```
 
-### Type of Unit Test that Available
+## Type of Unit Test that Available
 
 Below is the list of unit test that you can run :
    * all
@@ -122,7 +122,7 @@ Below is the list of unit test that you can run :
    * default
 
 
-## Deployment
+# Deployment
 
 Deployment will be triggered whenever any changes on master branch.
 
@@ -136,4 +136,40 @@ Variable that need to set :
    * user ( user to ssh)
    * DEVURL ( To update DEV URL with FQDN)
    * devserver ( Server that we want to deploy)
+
+Since we've integrate Wercker as part of our CI (Continuous Integration) , you can rerun the deployment via the Wercker console.
+
+Workflow as below :
+
+```
+Any changes on Master Repo --> Triggered Wercker Build --> Build Complete --> Deployed to Server
+```
+
+## Requirement for the Server
+
+   * Any linux server with Docker & Docker-composed installed
+   * Allow port 22 ( Whitelisted Wercker CI IP Range to secure our ssh port)
+   * Memory 2GB & Disk Space 10GB above
+   * Preinstalled Wercker public key in authorized_keys
+   * FQDN Ready for hostname of the server and the domain name for the docker application
+
+# Monitoring
+
+We need to ensure our server and application is highly availabiliy and if there any issue , we must get informed and able to pinpoint the issue as quickly as possible to ensure no impact to our business.
+
+Thus , this is my suggestion for the monitoring tools which covered for infrastructure level and also application level
+
+## Infrastructure Monitoring Tools
+
+  - [New Relic](https://newrelic.com/) - Infrastructure : Agent installed in our server which collecting server matric such as CPU Usage , memory usage , disk usage , network usage , disk IOPS usage , processes usage and other. Furthermore , we can set policy alert notification to triggered if something happened to our server, e.g : Host not responding , high load more than 10 min , disk usage reach 80% , and other . New relic also has agent that work with Docker container.
+
+  - [Pager Duty](https://www.pagerduty.com/) - Incident management that helps to orchestrate the ideal response to the related party as relying on the email alert is not sufficient. People tend not looking into their email after office hour. Thus , Pager Duty help to notify any incident via all method that we need, e.g : Phone Call , sms , push notifation.
+
+## Application Monitoring Tools
+
+  - [New Relic](https://newrelic.com/) - APM (Application Monitoring : It is a complete view of our application performance , dependencies and bottleneck . Thus , we can ensure our application work very well based average page load time , throughput , Apdex score, response time, error rate , CPU usage and memory usage.
+
+  - [Runscope](https://www.runscope.com/) - It is an API monitoring to ensure all our endpoint is up and working fine. It can also alert us if there any unusual traffic / high load API call toward certain endpoint. We can keep track the performance measurement more details.
+
+   
    
