@@ -14,7 +14,7 @@ build:
         code : chmod u+x ~/docker-magento2/deploy.sh
 
 deploy-to-docker:
-    box: debian
+    box: debian:stable-slim
     steps:
     # Installs openssh client and other dependencies.
     - install-packages:
@@ -29,4 +29,4 @@ deploy-to-docker:
     # Deployment
     - script:
         name: Deploy to server
-        code: ssh $user@$devserver sh ~/docker-magento2/deploy.sh
+        code: ssh $user@$devserver git clone https://github.com/shahmimajid/docker-magento2 && cd /home/$user/docker-magento2 && sh install.sh
