@@ -170,6 +170,3 @@ Thus , this is my suggestion for the monitoring tools which covered for infrastr
   - [New Relic](https://newrelic.com/) - APM (Application Monitoring : It is a complete view of our application performance , dependencies and bottleneck . Thus , we can ensure our application work very well based average page load time , throughput , Apdex score, response time, error rate , CPU usage and memory usage.
 
   - [Runscope](https://www.runscope.com/) - It is an API monitoring to ensure all our endpoint is up and working fine. It can also alert us if there any unusual traffic / high load API call toward certain endpoint. We can keep track the performance measurement more details.
-
-   
-   
