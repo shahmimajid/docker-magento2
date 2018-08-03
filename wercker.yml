@@ -32,7 +32,7 @@ deploy-to-docker:
         code: ssh $user@$devserver "cd /home/$user/docker-magento2 && docker-compose down && sleep 10"
     - script:
         name: Docker compose up
-        code: ssh $user@$devserver "cd /home/$user/docker-magento2 && sed -i "/s/local\.magento/$DEVURL/g" /home/$user/docker-magento2/env && docker-compose up -d"
+        code: ssh $user@$devserver "cd /home/$user/docker-magento2 && sed -i "/s/local.magento/$DEVURL/g" /home/$user/docker-magento2/env && docker-compose up -d"
     - script:
         name: Install Magento
         code: ssh $user@$devserver "sleep 10 && docker exec -it $(docker ps | grep "docker-magento2-base" |awk '{print $1}') /bin/bash /usr/local/bin/install-magento"
