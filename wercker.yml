@@ -99,7 +99,7 @@ test-integration:
     - add-ssh-key:
         keyname: devserver
     - script:
-        name: Run Test - Default
+        name: Run Test - integration
         code: ssh $user@$devserver "cd /home/mshahmi/docker-magento2 && chmod +x runtestmg-integration.sh && ./runtestmg-integration.sh"
 test-integrity:
     box: debian:stable-slim
@@ -115,7 +115,7 @@ test-integrity:
     - add-ssh-key:
         keyname: devserver
     - script:
-        name: Run Test - Default
+        name: Run Test - integrity
         code: ssh $user@$devserver "cd /home/mshahmi/docker-magento2 && chmod +x runtestmg-integrity.sh && ./runtestmg-integrity.sh"
 test-static:
     box: debian:stable-slim
@@ -131,7 +131,7 @@ test-static:
     - add-ssh-key:
         keyname: devserver
     - script:
-        name: Run Test - Default
+        name: Run Test - static
         code: ssh $user@$devserver "cd /home/mshahmi/docker-magento2 && chmod +x runtestmg-static.sh && ./runtestmg-static.sh"
 test-unit:
     box: debian:stable-slim
@@ -147,5 +147,5 @@ test-unit:
     - add-ssh-key:
         keyname: devserver
     - script:
-        name: Run Test - Default
+        name: Run Test - unit
         code: ssh $user@$devserver "cd /home/mshahmi/docker-magento2 && chmod +x runtestmg-unit.sh && ./runtestmg-unit.sh"
