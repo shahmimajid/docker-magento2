@@ -142,8 +142,10 @@ Since we've integrate Wercker as part of our CI (Continuous Integration) , you c
 Workflow as below :
 
 ```
-Any changes on Master Repo --> Triggered Wercker Build --> Build Complete --> Deployed to Server
+Any changes on Master Repo --> Triggered Wercker Build --> Build Complete --> Deployed to Server --> Unit Test
 ```
+
+We include the unit test to check whether our deployment have any issue, so that we can know what is going one before push to production
 
 ## Requirement for the Server
 
