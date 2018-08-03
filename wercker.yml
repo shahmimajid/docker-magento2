@@ -9,9 +9,6 @@ build:
     - script:
         name: Git clone
         code : git clone https://github.com/shahmimajid/docker-magento2.git 
-    - script:
-        name: Permission Fix
-        code : chmod u+x ~/docker-magento2/deploy.sh
 
 deploy-to-docker:
     box: debian:stable-slim
