@@ -51,5 +51,5 @@ unit-test:
     - add-ssh-key:
         keyname: devserver
     - script:
-        name: Install Magento
+        name: Run Unit Test
         code: ssh $user@$devserver "cd /home/mshahmi/docker-magento2 && chmod +x runtest.sh && ./runtest.sh"
