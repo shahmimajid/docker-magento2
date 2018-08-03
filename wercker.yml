@@ -68,7 +68,7 @@ test-all:
         keyname: devserver
     - script:
         name: Run Test - All
-        code: ssh $user@$devserver "cd /home/mshahmi/docker-magento2 && chmod +x runtestmg-all.sh && ./runtest-all.sh"
+        code: ssh $user@$devserver "cd /home/mshahmi/docker-magento2 && chmod +x runtestmg-all.sh && ./runtestmg-all.sh"
 test-default:
     box: debian:stable-slim
     steps:
@@ -84,4 +84,4 @@ test-default:
         keyname: devserver
     - script:
         name: Run Test - Default
-        code: ssh $user@$devserver "cd /home/mshahmi/docker-magento2 && chmod +x runtestmg-default.sh && ./runtest-default.sh"
+        code: ssh $user@$devserver "cd /home/mshahmi/docker-magento2 && chmod +x runtestmg-default.sh && ./runtestmg-default.sh"
